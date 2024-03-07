@@ -1,2 +1,4 @@
-# modern-c-
-This repo is solution of modern c++ (2020) course homework's by university of bonn
+# Modern C++
+This repo is a solution for modern C++ (2020) course homework by the University of Bonn
+
+- [x] Task 2

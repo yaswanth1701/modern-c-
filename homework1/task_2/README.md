@@ -5,6 +5,14 @@ and don't have much knowledge about build systems. Build systems are just
 **tools**, and one shouldn't get lost learning how to deal with it, it is what
 it is, a tool. And one just need to learn how to use it.
 
+# Solution:
+```bash
+mkdir build && cd build
+cmake ..
+cmake --build .
+cmake --install .
+```
+
 ## Table of Conents
 
 - [Build+Link Exercise [6 points in total]](#buildlink-exercise-6-points-in-total)
