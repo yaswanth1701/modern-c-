@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(HW2_task1)
+set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR})
+add_executable(task1 src/guess.cpp)
+#include(../cmake/ClangFormat.cmake)
+#include(../cmake/StaticAnalyzers.cmake)
+install(TARGETS task1 DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
