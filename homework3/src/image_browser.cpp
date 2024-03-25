@@ -7,10 +7,10 @@
 #include <vector>
 using namespace std;
 using namespace html_writer;
-using namespace image_browser;
 
-void AddFullRow(const ImageRow &row, bool first_row = false) {
+void image_browser::AddFullRow(const ImageRow &row, bool first_row) {
   bool first_img;
+  OpenRow();
   for (auto col = row.begin(); col != row.end(); ++col) {
     if (col == row.begin()) {
       first_img = true;
@@ -19,9 +19,12 @@ void AddFullRow(const ImageRow &row, bool first_row = false) {
     }
     AddImage(get<0>(*col), get<1>(*col), first_img);
   }
+  CloseRow();
 }
-void CreateImageBrowser(const std::string &title, const std::string &stylesheet,
-                        const std::vector<ImageRow> &rows) {
+
+void image_browser::CreateImageBrowser(const std::string &title,
+                                       const std::string &stylesheet,
+                                       const std::vector<ImageRow> &rows) {
 
   bool first_row;
   OpenDocument();
