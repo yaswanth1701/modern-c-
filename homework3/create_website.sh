@@ -1,3 +1,4 @@
+sudo apt install libfmt-dev
 mkdir build && cd build
 cmake ..
 cmake --build .
