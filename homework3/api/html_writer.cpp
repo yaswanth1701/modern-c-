@@ -18,14 +18,14 @@ void OpenDocument() {
 
 void CloseDocument() {
   string close_html = fmt::format("</html>") cout << close_html << endl;
-  html_file.close()
+  html_file.close();
 }
 
 void AddCSSStyle(const string &stylesheet) {
   string add_css = fmt::format("<head> \n <link rel = {} type = 'text/css' "
                                "href = 'style.css' /> \n </head>",
                                stylesheet) cout
-                   << add_css
+                   << add_css;
 }
 
 void AddTitle(const string &title) {
@@ -33,13 +33,13 @@ void AddTitle(const string &title) {
                      << "\n <title>" + title + "</title>"
 }
 
-void OpenBody() { cout << "\n <body>" }
+void OpenBody() { cout << "\n <body>"; }
 
-void CloseBody() { cout << "\n </body>" }
+void CloseBody() { cout << "\n </body>"; }
 
-void OpenRow() { cout << "\n <div class='row'>" }
+void OpenRow() { cout << "\n <div class='row'>"; }
 
-void CloseRow() { cout << "\n </div>" }
+void CloseRow() { cout << "\n </div>"; }
 
 void AddImage(const string &img_path, float score, bool highlight = false) {
   stringstream image_path(img_path);
