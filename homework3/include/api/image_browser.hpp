@@ -5,6 +5,7 @@
 #ifndef IMAGE_BROWSER_HPP_
 #define IMAGE_BROWSER_HPP_
 
+#include "html_writer.hpp"
 #include <array>
 #include <string>
 #include <tuple>

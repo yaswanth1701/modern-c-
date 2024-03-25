@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.20)
+project(homework3)
+set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}")
+add_subdirectory(src)
+install(TARGETS homework_3 DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)

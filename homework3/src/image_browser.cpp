@@ -1,5 +1,5 @@
-#include "image_browser.hpp"
-#include "html_writer.hpp"
+#include "api/image_browser.hpp"
+#include "api/html_writer.hpp"
 #include <array>
 #include <iostream>
 #include <string>
@@ -25,7 +25,7 @@ void CreateImageBrowser(const std::string &title, const std::string &stylesheet,
 
   bool first_row;
   OpenDocument();
-  CloseDocument();
+
   AddCSSStyle(stylesheet);
   AddTitle(title);
   OpenBody();
@@ -37,4 +37,6 @@ void CreateImageBrowser(const std::string &title, const std::string &stylesheet,
     }
     image_browser::AddFullRow(*row, first_row);
   }
+  CloseBody();
+  CloseDocument();
 }
