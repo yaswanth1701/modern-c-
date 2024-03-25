@@ -12,7 +12,7 @@ void image_browser::AddFullRow(const ImageRow &row, bool first_row) {
   bool first_img;
   OpenRow();
   for (auto col = row.begin(); col != row.end(); ++col) {
-    if (col == row.begin()) {
+    if (col == row.begin() && first_row) {
       first_img = true;
     } else {
       first_img = false;
@@ -28,9 +28,8 @@ void image_browser::CreateImageBrowser(const std::string &title,
 
   bool first_row;
   OpenDocument();
-
-  AddCSSStyle(stylesheet);
   AddTitle(title);
+  AddCSSStyle(stylesheet);
   OpenBody();
   for (auto row = rows.begin(); row != rows.end(); row++) {
     if (row == rows.begin()) {
@@ -38,7 +37,7 @@ void image_browser::CreateImageBrowser(const std::string &title,
     } else {
       first_row = false;
     }
-    image_browser::AddFullRow(*row, first_row);
+    AddFullRow(*row, first_row);
   }
   CloseBody();
   CloseDocument();

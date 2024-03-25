@@ -4,53 +4,54 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-using namespace html_writer;
 using namespace std;
 
-void OpenDocument() {
+void html_writer::OpenDocument() {
   string open_html = fmt::format("<!DOCTYPE html> \n <html> ");
   cout << open_html << endl;
 }
 
-void CloseDocument() {
+void html_writer::CloseDocument() {
   string close_html = fmt::format("</html>");
   cout << close_html << endl;
 }
 
-void AddCSSStyle(const string &stylesheet) {
-  string add_css = fmt::format("<head> \n <link rel = {} type = 'text/css' "
-                               "href = 'style.css' /> \n </head>",
-                               stylesheet);
+void html_writer::AddCSSStyle(const string &stylesheet) {
+  string add_css =
+      fmt::format("<head> \n <link rel = \"{}\" type = \"text/css\" "
+                  "href = \"style.css\" /> \n </head>",
+                  stylesheet);
   cout << add_css;
 }
 
-void AddTitle(const string &title) {
+void html_writer::AddTitle(const string &title) {
   string add_title = fmt::format("<title> {} </title>", title);
-  cout << "\n <title>" + title + "</title>";
+  cout << "\n <title>" + title + "</title> \n";
 }
 
-void OpenBody() { cout << "\n <body>"; }
+void html_writer::OpenBody() { cout << "\n <body>"; }
 
-void CloseBody() { cout << "\n </body>"; }
+void html_writer::CloseBody() { cout << "\n </body>\n"; }
 
-void OpenRow() { cout << "\n <div class='row'>"; }
+void html_writer::OpenRow() { cout << "\n <div class= \"row\"> \n"; }
 
-void CloseRow() { cout << "\n </div>"; }
+void html_writer::CloseRow() { cout << "\n </div>"; }
 
-void AddImage(const string &img_path, float score, bool highlight = false) {
+void html_writer::AddImage(const string &img_path, float score,
+                           bool highlight) {
   string open_col, img_name, img_floder;
   stringstream image_path(img_path);
   getline(image_path, img_floder, '/');
   getline(image_path, img_name, '/');
   if (highlight) {
-    open_col =
-        fmt::format("<div class='column' style='border: 5px solid green;'>");
+    open_col = fmt::format(
+        "<div class=\"column\" style=\"border: 5px solid green;\">");
   } else {
-    open_col = fmt::format("<div class='column'>");
+    open_col = fmt::format("<div class=\"column\">");
   }
 
   string add_name = fmt::format("<h2>{}</h2>", img_name);
-  string add_src = fmt::format("<img src='{}' />", img_path);
+  string add_src = fmt::format("<img src=\"{}\" />", img_path);
   string add_score = fmt::format("<p> score= {:.2f} </p>", score);
   string close_col = "</div>";
   cout << open_col << "\n";
